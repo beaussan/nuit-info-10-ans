@@ -11,8 +11,8 @@ const CurrentProfile = gql`
   }
 `;
 
-interface QueryResponse{
-  profile
+interface QueryResponse {
+  profile;
 }
 
 @Component({
@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
   currentProfile: any;
 
   constructor(private apollo: Apollo) {
-    this.currentProfile = {}
+    this.currentProfile = {};
   }
 
   ngOnInit() {
