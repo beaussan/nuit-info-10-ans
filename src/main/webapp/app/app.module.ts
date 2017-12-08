@@ -3,6 +3,7 @@ import './vendor.ts';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ng2-webstorage';
+import { KonamiModule } from 'ngx-konami';
 
 import { JhipsterSharedModule, UserRouteAccessService } from './shared';
 import { JhipsterAppRoutingModule} from './app-routing.module';
@@ -35,6 +36,7 @@ import {
         JhipsterAdminModule,
         JhipsterAccountModule,
         JhipsterEntityModule,
+        KonamiModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
