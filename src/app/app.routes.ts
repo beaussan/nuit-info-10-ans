@@ -6,11 +6,13 @@ import { ProfileComponent } from './profile';
 import { NoContentComponent } from './no-content';
 
 import { DataResolver } from './app.resolver';
+import { ConnexionComponent } from './connexion';
 
 export const ROUTES: Routes = [
   { path: '',      component: HomeComponent },
   { path: 'posts', loadChildren: './posts#PostsModule' },
   { path: 'profile', component: ProfileComponent },
   { path: 'react', component: ReactComponent },
+  { path: 'connexion', component: ConnexionComponent},
   { path: '**',    component: NoContentComponent },
 ];
