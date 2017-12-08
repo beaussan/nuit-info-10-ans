@@ -1,0 +1,53 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUserExtraLabel" jhiTranslate="jhipsterApp.userExtra.home.createOrEditLabel">Create or edit a User Extra</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!userExtra.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="userExtra.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.userExtra.isOrga" for="field_isOrga">Is Orga</label>
+            <input type="checkbox" class="form-control" name="isOrga" id="field_isOrga"
+                [(ngModel)]="userExtra.isOrga" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.userExtra.hasDoneWebTour" for="field_hasDoneWebTour">Has Done Web Tour</label>
+            <input type="checkbox" class="form-control" name="hasDoneWebTour" id="field_hasDoneWebTour"
+                [(ngModel)]="userExtra.hasDoneWebTour" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.userExtra.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                [(ngModel)]="userExtra.phone" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="jhipsterApp.userExtra.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="userExtra.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === userExtra.user?.id ? userExtra.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="jhipsterApp.userExtra.trips" for="field_trips">Trips</label>
+            <select class="form-control" id="field_trips" multiple name="trips" [(ngModel)]="userExtra.trips">
+                <option [ngValue]="getSelected(userExtra.trips, tripOption)" *ngFor="let tripOption of trips; trackBy: trackTripById">{{tripOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

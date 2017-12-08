@@ -1,0 +1,43 @@
+
+<div *ngIf="userExtra">
+    <h2><span jhiTranslate="jhipsterApp.userExtra.detail.title">User Extra</span> {{userExtra.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp.userExtra.isOrga">Is Orga</span></dt>
+        <dd>
+            <span>{{userExtra.isOrga}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.userExtra.hasDoneWebTour">Has Done Web Tour</span></dt>
+        <dd>
+            <span>{{userExtra.hasDoneWebTour}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.userExtra.phone">Phone</span></dt>
+        <dd>
+            <span>{{userExtra.phone}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.userExtra.user">User</span></dt>
+        <dd>
+            {{userExtra.user?.id}}
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.userExtra.trips">Trips</span></dt>
+        <dd>
+            <span *ngFor="let trips of userExtra.trips; let last = last">
+                <a [routerLink]="['/trip', trips?.id ]">{{trips.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'user-extra/'+ userExtra.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
