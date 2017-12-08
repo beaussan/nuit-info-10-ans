@@ -6,9 +6,31 @@ Main page styles
 .hipster {
     display: inline-block;
     width: 347px;
-    height: 497px;
-    background: url("../../content/images/hipster.png") no-repeat center top;
+    height: 269px;;
+    background: url("../../content/images/logo blablasam2.png") no-repeat center top;
     background-size: contain;
+    padding-top: 18px;
+}
+
+.btn-beautiful {
+    width: 50%;
+    margin: 10px;
+    > span {
+        justify-content: center;
+        margin: 10px;
+    }
+}
+
+.blue {
+    background-color: #3f72af;
+}
+
+.red {
+    background-color: #ff525d;
+}
+
+.green {
+    background-color: #40a798;
 }
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
@@ -20,7 +42,7 @@ only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
     .hipster {
-        background: url("../../content/images/hipster2x.png") no-repeat center top;
+        background: url("../../content/images/logo blablasam2.png") no-repeat center top;
         background-size: contain;
     }
 }
