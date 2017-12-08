@@ -1,10 +1,10 @@
 <div>
     <h2>
-        <span jhiTranslate="jhipsterApp.trip.home.title">Trips</span>
+        <span>Voyages</span>
         <button class="btn btn-primary float-right jh-create-entity create-trip" [routerLink]="['/', { outlets: { popup: ['trip-new'] } }]">
             <span class="fa fa-plus"></span>
-            <span  jhiTranslate="jhipsterApp.trip.home.createLabel">
-            Create new Trip
+            <span >
+            Créer un nouveau Voyage
             </span>
         </button>
     </h2>
@@ -16,21 +16,19 @@
         <table class="table table-striped">
             <thead>
             <tr>
-            <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="jhipsterApp.trip.startDate">Start Date</span></th>
-            <th><span jhiTranslate="jhipsterApp.trip.originCity">Origin City</span></th>
-            <th><span jhiTranslate="jhipsterApp.trip.event">Event</span></th>
+            <th><span>Numéro de voyage</span></th>
+            <th><span>Ville de départ</span></th>
+            <th><span>Evénement</span></th>
             <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let trip of trips ;trackBy: trackId">
                 <td><a [routerLink]="['../trip', trip.id ]">{{trip.id}}</a></td>
-                <td>{{trip.startDate | date:'medium'}}</td>
                 <td>{{trip.originCity}}</td>
                 <td>
                     <div *ngIf="trip.event">
-                        <a [routerLink]="['../event', trip.event?.id ]" >{{trip.event?.id}}</a>
+                        <a [routerLink]="['../event', trip.event?.id ]" >{{trip.event?.name}}</a>
                     </div>
                 </td>
                 <td class="text-right">
@@ -39,21 +37,21 @@
                                 [routerLink]="['../trip', trip.id ]"
                                 class="btn btn-info btn-sm">
                             <span class="fa fa-eye"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            <span class="d-none d-md-inline">Détail</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'trip/'+ trip.id + '/edit'} }]"
                                 replaceUrl="true"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            <span class="d-none d-md-inline">Modifier</span>
                         </button>
                         <button type="submit"
                                 [routerLink]="['/', { outlets: { popup: 'trip/'+ trip.id + '/delete'} }]"
                                 replaceUrl="true"
                                 class="btn btn-danger btn-sm">
                             <span class="fa fa-remove"></span>
-                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            <span class="d-none d-md-inline">Supprimer</span>
                         </button>
                     </div>
                 </td>
