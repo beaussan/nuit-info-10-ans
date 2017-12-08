@@ -8,7 +8,7 @@ Navbar
 }
 
 .jh-navbar {
-    background-color: #353d47;
+    background-color: #3f72af;
     padding: .2em 1em;
     .profile-image {
         margin: -10px 0px;
@@ -17,7 +17,7 @@ Navbar
         border-radius: 50%;
     }
     .dropdown-item.active, .dropdown-item.active:focus, .dropdown-item.active:hover {
-        background-color: #353d47;
+        background-color: #3f72af;
     }
     .dropdown-toggle::after {
         margin-left: 0.15em;
@@ -66,10 +66,10 @@ Logo styles
         padding: 5px 15px;
         .logo-img {
             height: 45px;
-            width: 70px;
+            width: 70px; // /home/beaussan/NuitInfo/nuit-info-10-ans/src/main/webapp/content/images/logo blablasam.png
             display: inline-block;
             vertical-align: middle;
-            background: url("../../../content/images/logo-jhipster.png") no-repeat center center;
+            background: url("../../../content/images/logo blablasam.png") no-repeat center center;
             background-size: contain;
         }
     }
