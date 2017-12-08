@@ -1,0 +1,50 @@
+entity UserExtra  {
+    isOrga Boolean,
+    hasDoneWebTour Boolean,
+    phone String
+}
+
+entity Event {
+    name Strig,
+    email String,
+    city String,
+    postalCode String,
+    streetNumber String,
+    moreInfoLocation String,
+    lattitude String,
+    longitude String,
+    idMaps String
+}
+
+entity Car {
+ nmbPlace Integer required,
+    name String required,
+}
+
+entity Trip {
+ startDate ZonedDateTime,
+    originCity String,
+}
+
+relationship OneToMany {
+ UserExtra{cars(name)} to Car{owner},
+    UserExtra{eventsOrganised(name)} to Event{owner},
+    Event{trips} to Trip{event}
+}
+
+relationship ManyToMany {
+ UserExtra{trips} to Trip{members}
+}
+
+
+relationship OneToOne {
+    UserExtra{user} to User
+}
+
+
+
+// paginate DailyReport with pagination
+
+// dto all with mapstruct
+
+service all with serviceClass
