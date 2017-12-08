@@ -1,0 +1,35 @@
+
+<div *ngIf="trip">
+    <h2><span jhiTranslate="jhipsterApp.trip.detail.title">Trip</span> {{trip.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp.trip.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{trip.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.trip.originCity">Origin City</span></dt>
+        <dd>
+            <span>{{trip.originCity}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.trip.event">Event</span></dt>
+        <dd>
+            <div *ngIf="trip.event">
+                <a [routerLink]="['/event', trip.event?.id]">{{trip.event?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'trip/'+ trip.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

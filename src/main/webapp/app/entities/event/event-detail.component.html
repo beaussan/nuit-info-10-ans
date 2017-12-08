@@ -1,0 +1,63 @@
+
+<div *ngIf="event">
+    <h2><span jhiTranslate="jhipsterApp.event.detail.title">Event</span> {{event.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="jhipsterApp.event.name">Name</span></dt>
+        <dd>
+            <span>{{event.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.event.email">Email</span></dt>
+        <dd>
+            <span>{{event.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.event.city">City</span></dt>
+        <dd>
+            <span>{{event.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.event.postalCode">Postal Code</span></dt>
+        <dd>
+            <span>{{event.postalCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.event.streetNumber">Street Number</span></dt>
+        <dd>
+            <span>{{event.streetNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.event.moreInfoLocation">More Info Location</span></dt>
+        <dd>
+            <span>{{event.moreInfoLocation}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.event.lattitude">Lattitude</span></dt>
+        <dd>
+            <span>{{event.lattitude}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.event.longitude">Longitude</span></dt>
+        <dd>
+            <span>{{event.longitude}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.event.idMaps">Id Maps</span></dt>
+        <dd>
+            <span>{{event.idMaps}}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterApp.event.owner">Owner</span></dt>
+        <dd>
+            <div *ngIf="event.owner">
+                <a [routerLink]="['/user-extra', event.owner?.id]">{{event.owner?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'event/'+ event.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

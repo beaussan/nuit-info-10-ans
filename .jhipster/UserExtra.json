@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "userExtra"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "cars",
+            "otherEntityName": "car",
+            "otherEntityRelationshipName": "owner"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "eventsOrganised",
+            "otherEntityName": "event",
+            "otherEntityRelationshipName": "owner"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "members",
+            "relationshipName": "trips",
+            "otherEntityName": "trip",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "isOrga",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "hasDoneWebTour",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171208024825",
+    "entityTableName": "user_extra",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

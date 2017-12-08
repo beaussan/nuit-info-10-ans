@@ -41,6 +41,15 @@ public class CacheConfiguration {
             cm.createCache(io.blabla.sam.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.blabla.sam.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.blabla.sam.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.blabla.sam.domain.UserExtra.class.getName(), jcacheConfiguration);
+            cm.createCache(io.blabla.sam.domain.UserExtra.class.getName() + ".cars", jcacheConfiguration);
+            cm.createCache(io.blabla.sam.domain.UserExtra.class.getName() + ".eventsOrganiseds", jcacheConfiguration);
+            cm.createCache(io.blabla.sam.domain.UserExtra.class.getName() + ".trips", jcacheConfiguration);
+            cm.createCache(io.blabla.sam.domain.Event.class.getName(), jcacheConfiguration);
+            cm.createCache(io.blabla.sam.domain.Event.class.getName() + ".trips", jcacheConfiguration);
+            cm.createCache(io.blabla.sam.domain.Car.class.getName(), jcacheConfiguration);
+            cm.createCache(io.blabla.sam.domain.Trip.class.getName(), jcacheConfiguration);
+            cm.createCache(io.blabla.sam.domain.Trip.class.getName() + ".members", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

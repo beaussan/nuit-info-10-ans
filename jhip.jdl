@@ -5,7 +5,7 @@ entity UserExtra  {
 }
 
 entity Event {
-    name Strig,
+    name String,
     email String,
     city String,
     postalCode String,
