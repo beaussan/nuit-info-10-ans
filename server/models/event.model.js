@@ -19,19 +19,17 @@ const EventSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  lieu: {
-    ville: String,
-    codeP: String,
-    numero: number,
-    rue: String,
-    detail: String
-  },
+  ville: String,
+  codeP: String,
+  numero: Number,
+  rue: String,
+  detail: String,
   description: {
     type: String,
     default: ''
-  }
-  latt: number,
-  long: number,
+  },
+  latt: Number,
+  long: Number,
   id_maps: String
 });
 
@@ -46,6 +44,7 @@ EventSchema.method({
  */
 
 EventSchema.statics = {
+
   get(id) {
     return this.findById(id)
       .exec()
@@ -53,9 +52,23 @@ EventSchema.statics = {
         if(user) {
           return user;
         }
-        const err = new APIError('No such user exists!', httpStatus.NOT_FOUND);
+        const err = new APIError('No such event exists!', httpStatus.NOT_FOUND);
         return Promise.reject(err);
       });
+  },
+
+  /**
+   * List posts in descending order of 'createdAt' timestamp.
+   * @param {number} skip - Number of posts to be skipped.
+   * @param {number} limit - Limit number of posts to be returned.
+   * @returns {Promise<Event[]>}
+   */
+  list({ skip = 0, limit = 50 } = {}) {
+    return this.find()
+      .sort({ createdAt: -1 })
+      .skip(+skip)
+      .limit(+limit)
+      .exec();
   }
 };
 
