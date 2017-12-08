@@ -1,5 +1,5 @@
 import event from './single';
-import events from './multiple';
+import events from './add';
 
 export default {
   event,
